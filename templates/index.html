@@ -10,55 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-
-<div class="todo">
-    <h1 class="todo__header">To Do App 📝</h1>
-
-    <div class="card todo__headerContainer">
-        <p class="font-weight-bold">What are we doing today? 🔥</p>
-        <form class="todo__form" action="{{ url_for('add') }}" method="POST">
-            <input placeholder="Write task here..." type="text" name="todoitem">
-            <input class="btn btn-info" type="submit" value="➕ Add Item">
-        </form>
-    </div>
-
-    <div class="todo__itemContainer">
-        {% if incomplete %}
-        <div class="card todo__innerItemContainer">
-            <h2 class="todo__itemHeader">To Do's 🕐</h2>
-            {% endif %}
-            <ul class="todo__container">
-                {% for todo in incomplete %}
-                <li class="todo__item">
-                    <p>{{ todo.text }}</p>
-                    <a class="btn btn-outline-success" href="{{ url_for('complete', id=todo.id) }}" class="">Complete
-                        ➡️</a>
-                    <a class="todo__close" href="{{ url_for('delete', id=todo.id) }}" class="">❌</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-
-        {% if complete %}
-        {% endif %}
-        {% if complete %}
-        <div class="card todo__innerItemContainer">
-            <h2 class="todo__itemHeader">Done ✅</h2>
-            {% endif %}
-            <ul class="todo__container">
-                {% for todo in complete %}
-                <li class="todo__item">
-                    <p>{{ todo.text }}</p>
-                    <a class="btn btn-outline-secondary" href="{{ url_for('uncheck', id=todo.id) }}" class="">⬅️
-                        Undo</a>
-                    <a class="todo__close" href="{{ url_for('delete', id=todo.id) }}" class="">❌</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</div>
+Hello World
 
 </body>
 </html>
