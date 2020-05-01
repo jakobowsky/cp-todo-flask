@@ -12,7 +12,6 @@
 <body>
 
 
-
 <div class="todo">
     <h1 class="todo__header">To Do App 📝</h1>
 
@@ -25,36 +24,42 @@
     </div>
 
     <div class="todo__itemContainer">
-
+        {% if incomplete %}
         <div class="card todo__innerItemContainer">
+
             <h2 class="todo__itemHeader">To Do's 🕐</h2>
 
             <ul class="todo__container">
                 {% for todo in incomplete %}
                 <li class="todo__item">
                     <p>{{ todo.text }}</p>
-                    <a class="btn btn-outline-success" href="#" class="">Complete
+                    <a class="btn btn-outline-success" href="{{ url_for('complete', id=todo.id) }}" class="">Complete
                         ➡️</a>
-                    <a class="todo__close" href="#" class="">❌</a>
+                    <a class="todo__close" href="{{ url_for('delete', id=todo.id) }}" class="">❌</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        {% endif %}
+
+        {% if complete %}
+        <div class="card todo__innerItemContainer">
+
+            <h2 class="todo__itemHeader">Done ✅</h2>
+
+            <ul class="todo__container">
+                {% for todo in complete %}
+                <li class="todo__item">
+                    <p>{{ todo.text }}</p>
+                    <a class="btn btn-outline-secondary" href="{{ url_for('uncheck', id=todo.id) }}" class="">⬅️
+                        Undo</a>
+                    <a class="todo__close" href="{{ url_for('delete', id=todo.id) }}" class="">❌</a>
                 </li>
                 {% endfor %}
             </ul>
         </div>
-
-        <div class="card todo__innerItemContainer">
-            <h2 class="todo__itemHeader">Done ✅</h2>
-
-            <ul class="todo__container">
-
-                <li class="todo__item">
-                    <p>My finished task X</p>
-                    <a class="btn btn-outline-secondary" href="#" class="">⬅️
-                        Undo</a>
-                    <a class="todo__close" href="#" class="">❌</a>
-                </li>
-
-            </ul>
-        </div>
+        {% endif %}
     </div>
 </div>
 
