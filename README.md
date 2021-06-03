@@ -1,5 +1,4 @@
 # Full-Stack ToDo Web App with Python
-This is a project for a Clever Programmer's course.
 
 ## Contents
 
